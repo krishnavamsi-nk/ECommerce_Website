@@ -1,0 +1,263 @@
+@media only screen and (min-width:320px) and (max-width:702px){
+    nav .navpart2 ul li a{
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+  
+
+nav .navpart2 ul {
+    display: flex; 
+
+    width: 100% !important;
+    
+    
+}
+
+nav .row .navpart1 .cateList{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+nav .row .navpart1 {
+    padding: 0px !important;
+}
+.ecom-icon {
+    display: flex !important;
+    justify-content: center !important;
+    flex: 0 0 100% !important;
+    margin-bottom: 1rem;
+}
+.ecom-icon a{
+    display: flex;
+    width: 100% !important;
+    justify-content: center;
+}
+.ecom-icon img{
+    margin: 0px !important;
+
+}
+nav .navpart2{
+    width: 100% !important;
+    margin: auto  !important;
+    flex: 0 0 100%; /* Full width */
+    max-width: 100%; /* Full width */
+    
+    
+
+}
+nav .navpart2 div{
+    width : 100% !important ;
+}
+
+nav .navpart2 ul li {
+    /* display: inline-block;  */
+    margin-right: 10px;  
+    white-space: nowrap;
+}
+
+
+    #root{
+        overflow-x: hidden;
+    }
+
+    nav .navpart2{
+        overflow-x: scroll;
+        
+    }
+
+
+.headerWrapper .header .part2 .country-drop{
+    display: none;
+}
+.headersearch.ml-4.mr-4 {
+    margin: 0px !important;
+}
+.headersearch input{
+    padding: 0px !important;
+}
+.headerWrapper .header .part2 {
+    display: flex;
+    flex: 0 0 100% !important
+}
+
+.sidebarNav{
+    width: 30% !important;
+}
+
+nav .row .labelbut {
+    display: none;
+}
+
+
+
+.homeBannersec .slick-list .slick-slide  img{
+    height: 18rem !important;
+
+     
+}
+
+
+.container-fluid.ml-3 {
+    margin-left: 0px !important;
+}
+.home-container .row .col-md-3{
+    display: none !important;
+}
+
+.home-container .row .col-md-9 .info{
+    flex-direction: column;
+    align-items: flex-start !important;
+
+}
+.home-container .row .col-md-9 .info .ml-auto{
+    max-width: none !important;
+}
+.home-container .row .col-md-9, 
+.productitems {
+    width: 100vw !important; /* Set width to match the viewport width */
+}
+
+.css-1mf9qzl-MuiButtonBase-root-MuiTabScrollButton-root.Mui-disabled{
+    display: none !important;
+}
+.homeproducts{
+    /* width: 100% !important; */
+     overflow-x: hidden !important;
+     /* min-width: 100% !important; */
+     margin: 0px 10px !important;
+}
+
+/* .home-container .row .col-md-9{
+    display: flex !important;
+    flex : 0 0 100% !important
+} */
+
+.home-container .row .col-md-9 .mt-5{
+    width: 100vw !important;
+
+}
+
+.homeproducts .arrowpro {
+    right: 0px !important;
+}
+
+.productitems.mt-4{
+    margin-top: 0px !important;
+
+}
+
+
+
+.productRow2.mt-4 .item{
+    width : 40% !important;
+    margin-right: 1.4rem;
+    
+}
+.newsLettersection{
+    width: 100vw !important;
+}
+.newsLettersection img{
+    display: none !important;
+}
+
+.productDetails {
+    width : 100vw !important;
+    margin :0px !important
+}
+.productDetails .col-md-8.pr-5{
+    padding: 0px 10px !important;
+}
+
+.customtabs ul li{
+    margin-right: 5px !important;
+    
+
+}
+.reviewform .row .form-control{
+    font-size: 14px;
+    width: 100%;
+}
+
+.customtabs ul li button{
+    font-size: 13px;
+    padding: 10px !important;
+    
+
+}
+.swiper-backface-hidden .swiper-slide{
+    width: 50% !important;
+}
+.swiper-horizontal {
+    overflow-x: scroll  !important;
+}
+.product-Listing-Page .productListing .sidebar{
+    
+    padding-left: 5px !important;
+    flex: 0 0 40% !important;
+}
+.product-Listing-Page .productListing{
+    padding: 0px !important;
+}
+.product-Listing-Page .productListing .content-right{
+    padding-right: 0px !important;
+    flex: 0 0 60% !important;
+}
+
+.sidebar .container{
+    padding: 5px !important;
+}
+
+.content-right .showby{
+    display: none !important;
+}
+.productList.three .item, .productList.four .item  {
+    width: 70% !important;
+}
+nav .navpart2 {
+    overflow-y: hidden !important;
+}
+nav .navpart2 ul li:hover .submenu{
+    z-index : 1000;
+    position: absolute !important;
+}
+
+.prodia .MuiPaper-rounded .row .col-md-5{
+    width: 100vw !important;
+}
+.prodia .MuiPaper-rounded .row .col-md-5 .productZoom .swiper-backface-hidden .swiper-slide{
+    width: 100% !important;
+}
+.copyright p{
+    width: 50% !important;
+}
+.copyright .list{
+    margin: 0px !important;
+}
+footer{
+    padding-top: 0px  !important;
+}
+.productDetails {
+    padding-bottom: 0px !important;
+}
+
+.container_order {
+    width: 100% !important;
+}
+.section .container_order{
+      padding-left: 10px !important ;
+}
+.checkout-page {
+    width: 100vw !important;
+}
+.checkout-page .row{
+    display: flex !important;
+    
+
+}
+.checkout-page .row .col-md-8{
+    padding: 0px 30px !important;
+}
+
+}
