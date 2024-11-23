@@ -1,0 +1,25 @@
+@media only screen and (min-width: 320px) and (max-width: 992px) {
+  header {
+    height: auto !important;
+  }
+  header .searchbox,
+  .cart-icon,
+  .email-icon {
+    display: none !important;
+  }
+  header .row .col-sm-4,
+  header .row .col-sm-5 {
+    margin: 0px !important;
+  }
+  header .row .col-sm-4 {
+    width: 40% !important;
+    /* margin-right: 10px !important; */
+  }
+  header .row .col-sm-4 .expand-icon {
+    margin-right: 20px !important;
+  }
+  header .row .col-sm-5 {
+    padding-left: 20px !important;
+    width: 60% !important;
+  }
+}
