@@ -35,6 +35,7 @@ function App() {
   const [isHeaderFooterShow, setisHeaderFooterShow] = useState(true);
   const [countryList, setCountryList] = useState([]);
   const [progress, setProgress] = useState(0);
+  const [mainloader , setMainLoader] = useState(true);
 
   const [openproduct, setopenproduct] = useState({
     id: "",
@@ -93,6 +94,12 @@ function App() {
   useEffect(() => {
     fetchDataFromApi("/api/category").then((res) => {
       setCatdataList(res);
+      
+      setTimeout(()=>{
+        setMainLoader(false);
+
+      },2000)
+
     });
   }, []);
 
@@ -306,6 +313,7 @@ function App() {
           </Routes>
           {isHeaderFooterShow === true && <Footer />}
           {openproduct.open === true && <ProductDetails data={productdata} />}
+          {mainloader === true && <div className="main-loader"></div>}
         </Mycontext.Provider>
       </BrowserRouter>
     </>
