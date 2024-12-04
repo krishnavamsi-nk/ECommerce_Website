@@ -9,7 +9,21 @@ body {
   overflow-x: hidden;
   /* background-color: #363333 !important; */
 }
-
+.main-loader {
+  position: fixed; /* Make the loader stay fixed to the screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../src/assets/images/main-loader.gif");
+  background-size: contain; /* Ensures the GIF maintains its aspect ratio */
+  background-position: center center; /* Centers the GIF */
+  background-repeat: no-repeat; /* Prevents the GIF from repeating */
+  background-color: rgb(255, 255, 255); /* Optional background color */
+  overflow: hidden; /* Prevents scrollbars */
+  
+  z-index: 1000;
+}
 .text-green{
   color: #01b452;
   font-weight: 900 !important;
@@ -1766,4 +1780,50 @@ a:hover {
 
 }
 
+/* loading main */
+
+.container.mode{
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.use{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.choose-mode{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  background-color:  rgb(43 118 255);
+  border-radius: 10px;
+  padding: 15px 25px;
+}
+.list-mode{
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.use h2{
+  color: white;
+
+}
+
+.list-mode button{
+  background-color: #f1f1f1;
+  padding: 5px  !important;
+  color: green;
+  font-weight: 800;
+  font-family:sans-serif;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.list-mode button:hover{
+  background-color: #d4d4d4;
+}
  

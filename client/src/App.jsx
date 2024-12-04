@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import "./responsive.css"
+import { Link } from "react-router-dom";
+import "./responsive.css";
+import Button from "@mui/material/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/index.jsx";
@@ -35,6 +37,7 @@ function App() {
   const [isHeaderFooterShow, setisHeaderFooterShow] = useState(true);
   const [countryList, setCountryList] = useState([]);
   const [progress, setProgress] = useState(0);
+  const [mainloader, setMainLoader] = useState(true);
 
   const [openproduct, setopenproduct] = useState({
     id: "",
@@ -61,7 +64,7 @@ function App() {
   const [totalitems, setTotalItems] = useState(0);
   const [totalcost, setTotalCost] = useState(0);
   const [totalCartData, setTotalCartsData] = useState([]);
-  const [checkOut, setCheckOut] = useState(false)
+  const [checkOut, setCheckOut] = useState(false);
   const [orderData, setOrderData] = useState({
     name: "",
     country: "",
@@ -93,6 +96,10 @@ function App() {
   useEffect(() => {
     fetchDataFromApi("/api/category").then((res) => {
       setCatdataList(res);
+
+      setTimeout(() => {
+        // setMainLoader(true);
+      }, 2000);
     });
   }, []);
 
@@ -299,13 +306,45 @@ function App() {
             <Route path="/order" exact={true} element={<Order />} />
             <Route path="/searchpage" exact={true} element={<SearchPage />} />
             <Route path="/myaccount" exact={true} element={<MyAccount />} />
-            <Route path="/payment/complete/:id" exact={true} element={<Payment/>}/> 
-            <Route path="/aboutus" exact={true} element={<AboutUs/>}/> 
-            <Route path="/contactus" exact={true} element={<ContactUs/>}/> 
-
+            <Route
+              path="/payment/complete/:id"
+              exact={true}
+              element={<Payment />}
+            />
+            <Route path="/aboutus" exact={true} element={<AboutUs />} />
+            <Route path="/contactus" exact={true} element={<ContactUs />} />
           </Routes>
           {isHeaderFooterShow === true && <Footer />}
           {openproduct.open === true && <ProductDetails data={productdata} />}
+          {mainloader === true && (
+            <div className="main-loader">
+              <div className="container mode">
+                <div className="choose-mode">
+                  <div className="use mb-2">
+                    <h2>Choose the Mode</h2>
+                  </div>
+                  <div className="list-mode">
+                    <Button
+                      onClick={() => {
+                        setMainLoader(false);
+                      }}
+                    >
+                      <Link to="/">User</Link>
+                    </Button>
+                    <Button>
+                      <a
+                        href="https://fullstack-ecom-admin.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Admin
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </Mycontext.Provider>
       </BrowserRouter>
     </>

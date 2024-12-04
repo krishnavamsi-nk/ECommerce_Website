@@ -518,7 +518,7 @@ const ProductUpload = () => {
             >
               <StyledBreadcrumb
                 component="a"
-                href="/dashboard"
+                href="/"
                 label="Dashboard"
                 icon={<HomeIcon fontSize="small" />}
               />
