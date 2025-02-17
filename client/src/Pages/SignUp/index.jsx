@@ -10,9 +10,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { fetchDataFromApi, postData } from "../../utils/api.jsx";
 import CircularProgress from "@mui/material/CircularProgress";
 import LoadingBar from "react-top-loading-bar";
-import {firebaseApp} from "../../firebase.js";
+import { firebaseApp } from "../../firebase.js";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
 
 const auth = getAuth();
 const googleProvider = new GoogleAuthProvider();
@@ -30,14 +29,13 @@ const SignUp = () => {
     isAdmin: false,
   });
 
-
   const signUpWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-  
+
         const fields = {
           name: user.providerData[0].displayName,
           email: user.providerData[0].email,
@@ -45,36 +43,39 @@ const SignUp = () => {
           images: user.providerData[0].photoURL,
           phone: user.providerData[0].phoneNumber,
         };
-  
+
         postData("/api/user/authWithGoogle", fields)
           .then((res) => {
             try {
               if (res.error !== true) {
                 localStorage.setItem("token", res.token);
-  
+
                 const user = {
                   name: res?.user?.name,
                   email: res?.user?.email,
                   userId: res?.user?._id, // Correctly map `_id`
                   isAdmin: res?.user?.isAdmin, // Ensure the field name matches
-                }
+                };
                 localStorage.setItem("user", JSON.stringify(user));
-  
+
                 context.setAlertBox({
                   msg: res.msg,
                   open: true,
-                  color: "success",  // Use "success" as the color
+                  color: "success", // Use "success" as the color
                 });
-  
+
                 setTimeout(() => {
                   setIsLoading(false);
                   window.location.href = "/";
+
+                  localStorage.setItem("mainloader", "false"); // Persist loader state
+                  context.setMainLoader(false); // Update state
                 }, 2000);
               } else {
                 context.setAlertBox({
                   msg: res.msg,
                   open: true,
-                  color: "error",  
+                  color: "error",
                 });
               }
             } catch (err) {
@@ -82,7 +83,7 @@ const SignUp = () => {
               context.setAlertBox({
                 msg: "An unexpected error occurred.",
                 open: true,
-                color: "error", 
+                color: "error",
               });
             }
           })
@@ -91,7 +92,7 @@ const SignUp = () => {
             context.setAlertBox({
               msg: "An error occurred during authentication.",
               open: true,
-              color: "error", 
+              color: "error",
             });
           });
       })
@@ -104,7 +105,6 @@ const SignUp = () => {
         });
       });
   };
-
 
   useEffect(() => {
     context.setisHeaderFooterShow(false);
@@ -271,7 +271,8 @@ const SignUp = () => {
               <p>Or Continue with Social Accounts</p>
               <div className="d-flex align-items-center icons">
                 <Button variant="outlined" onClick={signUpWithGoogle}>
-                  <FcGoogle />&nbsp; SignUp with Google
+                  <FcGoogle />
+                  &nbsp; SignUp with Google
                 </Button>
               </div>
             </div>
