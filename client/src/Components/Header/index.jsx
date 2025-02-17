@@ -82,11 +82,15 @@ const Header = () => {
           <div className="container-fluid">
             <div className="row">
               <div className="ecom-icon d-flex align-items-center col-sm-2">
-                <Link to={"/"}>
+                <Link
+                  to={"/"}
+                  onClick={() => {
+                    localStorage.setItem("mainloader", "true"); // Persist loader state
+                    context.setMainLoader(true); // Update state
+                  }}
+                >
                   {" "}
                   <img src={logo} alt="Logo" />
-                  
-
                 </Link>
               </div>
               <div className="col-sm-10  d-flex align-items-center part2">
