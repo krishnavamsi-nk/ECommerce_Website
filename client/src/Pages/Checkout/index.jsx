@@ -135,9 +135,7 @@ const Checkout = () => {
                         variant="standard"
                         sx={{ m: 1, minWidth: 120 }}
                       >
-                        <InputLabel id="demo-simple-select-standard-label">
-                          Country
-                        </InputLabel>
+                    
                         <TextField
                           className="country"
                           name="country"
