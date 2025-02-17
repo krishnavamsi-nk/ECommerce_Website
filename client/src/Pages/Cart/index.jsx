@@ -123,6 +123,9 @@ const Cart = () => {
 
     if (result.error) {
       console.log(result.error);
+    } else {
+      localStorage.setItem("mainloader", "false");
+      history("/order");
     }
 
     deleteData("/api/cart", "/deletecart/all");
