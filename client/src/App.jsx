@@ -37,7 +37,10 @@ function App() {
   const [isHeaderFooterShow, setisHeaderFooterShow] = useState(true);
   const [countryList, setCountryList] = useState([]);
   const [progress, setProgress] = useState(0);
-  const [mainloader, setMainLoader] = useState(true);
+
+  const [mainloader, setMainLoader] = useState(() => {
+    return localStorage.getItem("mainloader") === "false" ? false : true;
+  });
 
   const [openproduct, setopenproduct] = useState({
     id: "",
@@ -264,6 +267,8 @@ function App() {
     setSearchData,
     checkOut,
     setCheckOut,
+    // main loader
+    setMainLoader,
   };
 
   return (
@@ -326,6 +331,7 @@ function App() {
                   <div className="list-mode">
                     <Button
                       onClick={() => {
+                        localStorage.setItem("mainloader", "false"); // Persist loader state
                         setMainLoader(false);
                       }}
                     >
