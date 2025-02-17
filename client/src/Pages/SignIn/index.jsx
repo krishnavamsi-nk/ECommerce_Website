@@ -56,7 +56,7 @@ const SignIn = () => {
                   email: res?.user?.email,
                   userId: res?.user?._id, // Correctly map `_id`
                   isAdmin: res?.user?.isAdmin, // Ensure the field name matches
-                }
+                };
                 localStorage.setItem("user", JSON.stringify(user));
 
                 context.setAlertBox({
@@ -68,6 +68,9 @@ const SignIn = () => {
                 setTimeout(() => {
                   setIsLoading(false);
                   window.location.href = "/";
+
+                  localStorage.setItem("mainloader", "false"); // Persist loader state
+                  context.setMainLoader(false); // Update state
                 }, 2000);
               } else {
                 context.setAlertBox({
