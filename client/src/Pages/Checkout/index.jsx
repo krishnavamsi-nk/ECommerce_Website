@@ -130,7 +130,7 @@ const Checkout = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="form-group mt-2">
-                      <FormControl
+               <FormControl
                         className="w-100"
                         variant="standard"
                         sx={{ m: 1, minWidth: 120 }}
@@ -138,26 +138,14 @@ const Checkout = () => {
                         <InputLabel id="demo-simple-select-standard-label">
                           Country
                         </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-standard-label"
+                        <TextField
+                          className="country"
                           name="country"
                           value={con}
+                          label="Country"
+                          variant="outlined"
                           onChange={handleChangeCountry}
-                          label="Age"
-                          className="country"
-                          MenuProps={MenuProps} // Apply custom styles here
-                        >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
-
-                          {context.countryList?.length !== 0 &&
-                            context.countryList?.map((item, index) => (
-                              <MenuItem key={index} value={item.country}>
-                                {item.country}
-                              </MenuItem>
-                            ))}
-                        </Select>
+                        />
                       </FormControl>
                     </div>
                   </div>
