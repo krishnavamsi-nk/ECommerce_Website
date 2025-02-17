@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState, useContext } from "react";
 import { fetchDataFromApi } from "../../utils/api";
 import Pagination from "@mui/material/Pagination";
-import {Mycontext} from "../../App";
-import {useNavigate} from "react-router-dom";
+import { Mycontext } from "../../App";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const [orders, setOrders] = useState({});
@@ -13,24 +13,39 @@ const Order = () => {
   const history = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchDataFromApi("/api/order").then((res) => {
-      setOrders(res);
-      console.log("resss:", res);
-    });
+    const userData = localStorage.getItem("user");
+
+    if (userData) {
+      const user = JSON.parse(userData);
+      fetchDataFromApi(
+        `/api/order?userId=${encodeURIComponent(user.userId)}`
+      ).then((res) => {
+        setOrders(res);
+        console.log("resss1:", res);
+      });
+    }
   }, []);
 
   const handlePage = (event, value) => {
-    fetchDataFromApi(`/api/order?page=${value}`).then((res) => {
-      setOrders(res);
-      window.scrollTo(0, 0);
-    });
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      const user = JSON.parse(userData);
+
+      fetchDataFromApi(
+        `/api/order?page=${value}?userId=${encodeURIComponent(user.userId)}`
+      ).then((res) => {
+        console.log("ress2:", res);
+        setOrders(res);
+        window.scrollTo(0, 0);
+      });
+    }
   };
 
-  useEffect(()=>{
-    if(context.issignin===false){
-      history("/signin")
+  useEffect(() => {
+    if (context.issignin === false) {
+      history("/signin");
     }
-  },[context.issignin]);
+  }, [context.issignin]);
 
   const openProduct = (index) => {
     setIndex(index);
@@ -97,20 +112,19 @@ const Order = () => {
                         <td>{item.date}</td>
                       </tr>
 
-                    { indexs === index &&
-                        toggle === true &&
-                    
-                    <tr
-                        key={item.id}
-                        style={{ background: "#3be4ff", color: "white" }}
-                      >
-                        <th>Product Id</th>
-                        <th>Product Title</th>
-                        <th>Image</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>SubTotal</th>
-                      </tr>}
+                      {indexs === index && toggle === true && (
+                        <tr
+                          key={item.id}
+                          style={{ background: "#3be4ff", color: "white" }}
+                        >
+                          <th>Product Id</th>
+                          <th>Product Title</th>
+                          <th>Image</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                          <th>SubTotal</th>
+                        </tr>
+                      )}
 
                       {indexs === index &&
                         toggle === true &&
@@ -147,7 +161,7 @@ const Order = () => {
               </tbody>
             </table>
 
-            {orders?.totalPages > 1 && (
+            {/* {orders?.totalPages > 1 && (
               <div className="tablefoot">
                 <p>
                   showing <b>{orders?.page}</b> out of{" "}
@@ -162,7 +176,7 @@ const Order = () => {
                   onChange={handlePage}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
