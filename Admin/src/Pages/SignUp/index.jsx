@@ -87,7 +87,7 @@ const SignUp = () => {
 
                 setTimeout(() => {
                   setIsLoading(false);
-                  window.location.href = "/login";
+                   history("/login");
                 }, 2000);
               } else {
                 context.setAlertBox({
