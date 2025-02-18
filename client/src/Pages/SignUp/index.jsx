@@ -66,7 +66,7 @@ const SignUp = () => {
 
                 setTimeout(() => {
                   setIsLoading(false);
-                  window.location.href = "/signin";
+                  history("/signin");
 
                   localStorage.setItem("mainloader", "false"); // Persist loader state
                   context.setMainLoader(false); // Update state
